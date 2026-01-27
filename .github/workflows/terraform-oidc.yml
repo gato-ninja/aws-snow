@@ -13,7 +13,7 @@ permissions:
 env:
   AWS_REGION: "us-east-2"
   IAM_ROLE_ARN: "arn:aws:iam::759817713039:role/github_actions_adm"
-  SNOWFLAKE_ACCOUNT: "JG57739"
+  SNOWFLAKE_ACCOUNT: "BCABAJN-JG57739"
 
 jobs:
   terraform:
