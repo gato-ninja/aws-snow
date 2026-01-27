@@ -30,12 +30,12 @@ data "aws_iam_policy_document" "trust_relationships" {
     actions = ["sts:AssumeRole"]
     principals {
       type        = "AWS"
-      identifiers = [snowflake_storage_integration.integration.describe_output[0].storage_aws_iam_user_arn[0]]
+      identifiers = [snowflake_storage_integration.integration.describe_output[0].storage_aws_iam_user_arn[0].value]
     }
     condition {
       test     = "StringEquals"
       variable = "sts:ExternalId"
-      values   = [snowflake_storage_integration.integration.describe_output[0].storage_aws_external_id[0]]
+      values   = [snowflake_storage_integration.integration.describe_output[0].storage_aws_external_id[0].value]
     }
   }
 }
