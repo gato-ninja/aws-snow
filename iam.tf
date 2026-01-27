@@ -26,15 +26,27 @@ data "aws_iam_policy_document" "permissions" {
 
 data "aws_iam_policy_document" "trust_relationships" {
   statement {
+    effect  = "Allow"
     actions = ["sts:AssumeRole"]
     principals {
-      type        = "Federated"
-      identifiers = ["arn:aws:iam::${var.snowflake_account_id}:saml-provider/${var.snowflake_saml_provider_name}"]
+      type        = "AWS"
+      identifiers = [snowflake_storage_integration.integration.storage_aws_iam_user_arn]
     }
     condition {
       test     = "StringEquals"
-      variable = "SAML:aud"
-      values   = ["https://signin.aws.amazon.com/saml"]
+      variable = "sts:ExternalId"
+      values   = [snowflake_storage_integration.integration.storage_aws_external_id]
     }
   }
+}
+
+resource "aws_iam_role" "snowflake_oidc_role" {
+  name               = "snowflake-oidc-role"
+  assume_role_policy = data.aws_iam_policy_document.trust_relationships.json
+}
+
+resource "aws_iam_role_policy" "snowflake_oidc_policy" {
+  name   = "snowflake-oidc-policy"
+  role   = aws_iam_role.snowflake_oidc_role.id
+  policy = data.aws_iam_policy_document.permissions.json
 }
