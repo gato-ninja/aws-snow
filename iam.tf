@@ -22,6 +22,16 @@ data "aws_iam_policy_document" "permissions" {
       values   = ["${var.prefix}/*"]
     }
   }
+  # SNS permissions for Snowflake pipe notifications
+  statement {
+    actions = [
+      "SNS:Subscribe",
+      "SNS:Unsubscribe"
+    ]
+    resources = [
+      aws_sns_topic.s3_notifications.arn
+    ]
+  }
 }
 
 data "aws_iam_policy_document" "trust_relationships" {
