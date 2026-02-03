@@ -1,3 +1,3 @@
-resource "snowflake_database" "database_name" {
-  name = var.database_name
+data "snowflake_database" "database" {
+  name = "DEMO_DB"
 }
