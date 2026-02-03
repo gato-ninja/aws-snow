@@ -15,11 +15,13 @@ resource "snowflake_pipe" "pipe" {
     ON_ERROR = 'CONTINUE'
   SQL
 
-  auto_ingest = true
+  auto_ingest        = true
+  aws_sns_topic_arn = aws_sns_topic.s3_notifications.arn
 
   depends_on = [
     snowflake_table.table,
     snowflake_stage.stage,
-    snowflake_file_format.example_file_format
+    snowflake_file_format.example_file_format,
+    aws_sns_topic.s3_notifications
   ]
 }

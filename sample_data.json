@@ -1,0 +1,88 @@
+[
+  {
+    "id": 1,
+    "timestamp": "2026-02-03T10:30:00Z",
+    "user": {
+      "user_id": 12345,
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "profile": {
+        "age": 28,
+        "location": "New York",
+        "preferences": {
+          "theme": "dark",
+          "language": "en",
+          "notifications": true
+        }
+      }
+    },
+    "event": {
+      "type": "purchase",
+      "category": "electronics",
+      "details": {
+        "product_id": "LAPTOP001",
+        "product_name": "Gaming Laptop",
+        "price": 1299.99,
+        "currency": "USD",
+        "discount": {
+          "code": "SAVE20",
+          "amount": 260.00,
+          "percentage": 20
+        }
+      },
+      "shipping": {
+        "method": "express",
+        "address": {
+          "street": "123 Main St",
+          "city": "New York",
+          "state": "NY",
+          "zip": "10001",
+          "country": "USA"
+        },
+        "estimated_delivery": "2026-02-05"
+      }
+    },
+    "tags": ["premium", "electronics", "laptop"],
+    "metadata": {
+      "source": "web_app",
+      "version": "1.2.3",
+      "session_id": "sess_abc123",
+      "ip_address": "192.168.1.100"
+    }
+  },
+  {
+    "id": 2,
+    "timestamp": "2026-02-03T11:15:00Z",
+    "user": {
+      "user_id": 67890,
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "profile": {
+        "age": 32,
+        "location": "Los Angeles",
+        "preferences": {
+          "theme": "light",
+          "language": "en",
+          "notifications": false
+        }
+      }
+    },
+    "event": {
+      "type": "page_view",
+      "category": "navigation",
+      "details": {
+        "page": "/products/smartphones",
+        "referrer": "https://google.com",
+        "duration_seconds": 45,
+        "bounce": false
+      }
+    },
+    "tags": ["browsing", "mobile"],
+    "metadata": {
+      "source": "mobile_app",
+      "version": "2.1.0",
+      "session_id": "sess_def456",
+      "ip_address": "10.0.0.50"
+    }
+  }
+]
