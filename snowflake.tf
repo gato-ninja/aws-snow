@@ -5,7 +5,13 @@ provider "snowflake" {
   # authenticator              = "WORKLOAD_IDENTITY"
   # workload_identity_provider = "OIDC"
   role = "ACCOUNTADMIN"
-  preview_features_enabled = ["snowflake_storage_integration_resource"]
+  preview_features_enabled = [
+    "snowflake_storage_integration_resource",
+    "snowflake_database_datasource",
+    "snowflake_pipe_resource",
+    "snowflake_stage_resource",
+    "snowflake_table_resource"
+  ]
 }
 
 # SNOWFLAKE_TOKEN
