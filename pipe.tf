@@ -1,5 +1,5 @@
 resource "snowflake_pipe" "pipe" {
-  database = data.snowflake_database.database.name
+  database = snowflake_database.database.name
   schema   = snowflake_schema.schema.name
   name     = "S3_DATA_PIPE"
 

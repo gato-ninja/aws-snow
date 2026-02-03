@@ -1,3 +1,4 @@
-data "snowflake_database" "database" {
-  name = "super_teste_incrivel"
+resource "snowflake_database" "database" {
+  name = var.database_name
+  comment = "Database created by Terraform for snow studies project"
 }

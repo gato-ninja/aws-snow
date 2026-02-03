@@ -1,5 +1,5 @@
 resource "snowflake_table" "table" {
-  database = data.snowflake_database.database.name
+  database = snowflake_database.database.name
   schema   = snowflake_schema.schema.name
   name     = "JSON_DATA_TABLE"
 
